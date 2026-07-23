@@ -1,6 +1,29 @@
 #include<iostream>
 #include<vector>
 using namespace std;
+
+int arr[4][4] = {
+                    {1,2,3,4},
+                    {5,6,7,8},
+                    {9,10,11,12},
+                    {13,14,15,16}
+                };
+
+vector<int> staircase(int target){
+    int n = sizeof(arr)/sizeof(arr[0]);
+    int m = sizeof(arr[0])/sizeof(arr[0][0]);
+    int row = 0;
+    int col = m-1;
+    while(row<=n-1 && col>=0){
+        if(target==arr[row][col])   return {row,col};
+        if(target<arr[row][col])    col--;
+        else    row++;
+    }
+    return {-1,-1};
+}
+
+
+
 int main(){
     /*
     int arr[][2] = {{1,2},{3,4},{5,6}};
@@ -21,7 +44,7 @@ int main(){
         cout << "  ";
     }
     cout << endl;
-    */
+    
 
     // spiral matrix
     int spiral[4][4] = {{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16}};
@@ -58,4 +81,20 @@ int main(){
             left++;
         }
     }
+    */
+
+
+    // set zeroes:- done leetcode
+    // binary search(flat 2D arr):- done leetcode
+
+    // staircase search:-
+    cout << staircase(3)[0] << endl;
+    cout << staircase(3)[1] << endl;
+    
+    // relative sorting on 2D arr:-
+    // aggresive cows 
+   
+
+
+    
 }
